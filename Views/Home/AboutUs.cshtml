@@ -1,0 +1,128 @@
+@{
+    ViewData["Title"] = "About Us";
+}
+<div class="container-fluid px-0 text-dark">
+
+    <!-- =====  HERO BANNER  ===== -->
+    <section class="position-relative" style="background-image:url('/img/hero/hero-2.jpg'); background-size:cover; background-position:center;">
+        <div class="position-absolute top-0 start-0 w-100 h-100 bg-white" style="opacity:.45;"></div>
+        <div class="container py-5 position-relative">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-3 fw-bold text-charcoal">Our Story</h1>
+                    <p class="lead">Family flame-grilled since 1945 – 80 years of burger love.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====  FAMILY STORY  ===== -->
+    <section class="py-5 bg-cream">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h2 class="section-title">It Started with Fire</h2>
+                    <p>
+                        In 1945 Oupa Jakob fired up a single grill on a Pretoria street corner so he could feed his family during tough times.
+                        Word spread faster than the grease on his griddle – neighbours lined up for burgers that actually tasted like LOVE.
+                        Today his great-grandchildren still flame-grill every patty, bake our buns at 04:00 each morning and pour only local craft beer.
+                        No microwaves, no shortcuts, no regrets – just the same warmth that welcomed the first customer 80 years ago.
+                    </p>
+                    <p>
+                        We’ve refined our menu with every decade: adding plant-based patties in the 90s, craft beer taps in the 2010s, and delivery in 2020.
+                        Yet the heart remains unchanged – FAMILY, FIRE AND FLAVOUR.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="~/img/hero/hero-1.jpg" class="img-fluid rounded-3 shadow-lg" alt="Our grill">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====  VALUES  ===== -->
+    <section class="py-5">
+        <div class="container text-center">
+            <h2 class="section-title mb-4">What We Stand For</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-fire fs-1 text-primary"></i>
+                            <h5 class="mt-3">Real Fire</h5>
+                            <p class="small">Wood-fired grill, no microwaves, no shortcuts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-hand-thumbs-up fs-1 text-primary"></i>
+                            <h5 class="mt-3">Family First</h5>
+                            <p class="small">Still family-run, still welcoming, still warm.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <i class="bi bi-recycle fs-1 text-primary"></i>
+                            <h5 class="mt-3">Planet Friendly</h5>
+                            <p class="small">Biodegradable packaging, recycled oil, paper straws.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====  TEAM  ===== -->
+    <section class="py-5 bg-cream">
+        <div class="container text-center">
+            <h2 class="section-title mb-4">Meet the Crew</h2>
+            <div class="row g-4 justify-content-center">
+                @for (int i = 1; i <= 4; i++)
+                {
+                    <div class="col-md-3 text-center">
+                        <img src="~/img/team/team-@(i).jpg" class="rounded-circle mb-3" width="120" height="120" alt="Team member @i">
+                        <h6 class="mb-0">Team Member @i</h6>
+                        <small class="text-muted">Position @i</small>
+                    </div>
+                }
+            </div>
+            <p class="mt-4">Want to join the fire? <a asp-controller="Account" asp-action="Register" class="text-primary">Apply here</a>.</p>
+        </div>
+    </section>
+
+    <!-- =====  STATS  ===== -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container text-center">
+            <div class="row g-4">
+                <div class="col-6 col-md-3">
+                    <div class="fs-2 fw-bold">80</div>
+                    <div class="small">Years of Love</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fs-2 fw-bold">12</div>
+                    <div class="small">Burger Varieties</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fs-2 fw-bold">9</div>
+                    <div class="small">Beer Taps</div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="fs-2 fw-bold">25 k+</div>
+                    <div class="small">Happy Customers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====  CALL TO ACTION  ===== -->
+    <section class="py-5 text-center">
+        <div class="container">
+            <h2 class="mb-3">Ready to taste 80 years of love?</h2>
+            <a asp-controller="Burger" asp-action="Index" class="btn btn-lg btn-primary">Order Now</a>
+        </div>
+    </section>
+</div>

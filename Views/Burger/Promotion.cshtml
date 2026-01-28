@@ -1,0 +1,76 @@
+@{
+    ViewData["Title"] = "Add Your Own – Monthly Raffle";
+    Layout = "_Layout";
+}
+<div class="container py-5 text-dark">
+
+    <!-- =====  BANNER  ===== -->
+    <section class="text-center py-5 bg-warning text-dark">
+        <h1 class="display-3 fw-bold">CREATE THE NEXT ICON</h1>
+        <p class="lead">Every month we raffle ONE customer burger. If it wins, it hits our menu for a full year and you pocket <strong>R 100 000</strong> over 12 months!</p>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-lg btn-dark mt-3">Enter Now</a>
+    </section>
+
+    <!-- =====  HOW IT WORKS  ===== -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-4">How the Raffle Works</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold text-primary">1</div>
+                            <h5>Log In</h5>
+                            <p class="small">Only registered customers can enter.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold text-primary">2</div>
+                            <h5>Create</h5>
+                            <p class="small">Name your burger, pick ingredients, set a price.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold text-primary">3</div>
+                            <h5>Raffle</h5>
+                            <p class="small">We draw ONE entry on the last day of the month.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card h-100 border-0">
+                        <div class="card-body">
+                            <div class="fs-1 fw-bold text-primary">4</div>
+                            <h5>Win Big</h5>
+                            <p class="small">Your burger sells for 12 months and you earn R 100 k.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-lg btn-primary">Enter Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====  TERMS  ===== -->
+    <section class="py-5 bg-cream">
+        <div class="container">
+            <h5>Quick Terms</h5>
+            <ul class="small">
+                <li>Open to SA residents 18+ with a valid BurgerJoint account.</li>
+                <li>One entry per customer per month.</li>
+                <li>Winner chosen by random draw on the last calendar day.</li>
+                <li>Prize: R 100 000 paid in 12 equal monthly instalments (R 8 333.33).</li>
+                <li>Burger must meet food-safety standards; we may tweak the recipe.</li>
+                <li>Decision of BurgerJoint is final.</li>
+            </ul>
+        </div>
+    </section>
+</div>

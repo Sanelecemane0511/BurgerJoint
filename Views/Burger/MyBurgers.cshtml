@@ -1,0 +1,23 @@
+@model IEnumerable<BurgerJoint.Models.Burger>
+@{
+    ViewData["Title"] = "My Burgers";
+}
+<h2>My Burgers</h2>
+<table class="table table-striped">
+    <thead><tr><th>Image</th><th>Name</th><th>Price</th><th></th></tr></thead>
+    <tbody>
+    @foreach (var b in Model)
+    {
+        <tr>
+            <td><img src="~/img/burgers/@(b.ImageFileName??"burger-1.jpg")" width="60" class="rounded" /></td>
+            <td>@b.Name</td>
+            <td>@b.Price.ToString("C")</td>
+            <td>
+                <form asp-action="DeleteConfirmed" asp-route-id="@b.Id" onsubmit="return confirm('Delete?');">
+                    <button type="submit" class="btn btn-sm btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

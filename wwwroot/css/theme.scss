@@ -1,0 +1,58 @@
+@use "sass:color";
+
+// ----  PALETTE  ----
+$primary  : #ff7f00; 
+$secondary: #f5c518; 
+$cream    : #fff8e1; 
+$white    : #ffffff;
+$charcoal : #2b2b2b;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+:root{ --bs-font-sans-serif:'Poppins',sans-serif; }
+
+body{
+  font-family:var(--bs-font-sans-serif);
+  background:linear-gradient(135deg,$cream 0%,$white 100%);
+  color:$charcoal;
+  scroll-behavior:smooth;
+}
+
+/* --- tidy header & logo --- */
+.main-header   { padding: .5rem 0 !important; }     /* reduce height */
+.logo-img      { height: 32px !important; }        /* normal logo */
+.navbar-nav .nav-link { font-size: .95rem !important; } /* tidy text */     
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active{color:#ff7f00 !important;}
+
+/* ----  SHORT CAROUSEL  ---- */
+#welcomeCarousel,
+#welcomeCarousel .carousel-item{
+  height:600px;        
+  max-height:600px;
+}
+#welcomeCarousel img{
+  object-fit:cover;
+  height:100%;
+}
+.carousel-caption h1{font-size:5rem;} 
+
+/* ----  SECTIONS  ---- */
+.section-title{font-weight:800;letter-spacing:1px;text-transform:uppercase;color:$primary;}
+
+/* ----  CARDS  ---- */
+.burger-card{transition:transform .3s,box-shadow .3s;border:none;border-radius:1.25rem;
+  &:hover{transform:translateY(-8px);box-shadow:0 12px 24px rgba($primary,.25);}}
+.card-img-top{border-radius:1.25rem 1.25rem 0 0;}
+.burger-card img{height:200px;object-fit:cover;}
+
+/* orange checkout button */
+#checkoutBar .btn-accent{background:$primary !important;color:#000 !important;font-weight:600;}
+
+/* ----  FOOTER  ---- */
+.main-footer{background:$charcoal;color:#eee;}
+.footer-logo{height:48px;filter:drop-shadow(0 0 4px $primary);}
+.social-links a{font-size:1.3rem;transition:color .3s;
+  &:hover{color:$primary;}}
+
+/* ----  ANIMATIONS  ---- */
+.fly-to-cart{position:fixed;z-index:9999;border-radius:50%;pointer-events:none;box-shadow:0 0 15px rgba($primary,.8);}

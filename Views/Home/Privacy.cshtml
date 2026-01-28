@@ -1,0 +1,150 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<div class="container py-5 text-dark">
+    <h1 class="mb-4">Privacy Policy</h1>
+    <p><strong>Last updated:</strong> 13 November 2025</p>
+
+    <h2>1. Introduction</h2>
+    <p>
+        BurgerJoint (Pty) Ltd (“we”, “our”, “us”) respects your privacy and is committed to protecting your personal information.
+        This Privacy Policy explains how we collect, use, disclose and safeguard your data when you visit
+        <a href="https://burgerjoint.co.za">https://burgerjoint.co.za</a> or any related services (the “Site”).
+        We comply with the Protection of Personal Information Act 4 of 2013 (POPIA) and, where applicable,
+        the General Data Protection Regulation (GDPR).
+    </p>
+
+    <h2>2. What information do we collect?</h2>
+    <ul>
+        <li><strong>Account data:</strong> name, email, phone number, delivery address (only if you create an account or place an order).</li>
+        <li><strong>Order data:</strong> items purchased, payment method, transaction reference (we do NOT store card numbers).</li>
+        <li><strong>Technical data:</strong> IP address, browser type, pages visited, time-zone, device identifiers.</li>
+        <li><strong>Cookies:</strong> see section 7 below.</li>
+        <li><strong>Marketing preferences:</strong> opt-in/opt-out status for newsletters or SMS.</li>
+    </ul>
+
+    <h2>3. How do we collect it?</h2>
+    <ul>
+        <li>Directly: when you register, place an order, complete a contact form or subscribe to a newsletter.</li>
+        <li>Automatically: through cookies, log files, analytics and tracking technologies.</li>
+        <li>Third parties: payment gateway (PayFast, Stripe) provides transaction status; delivery partners provide tracking updates.</li>
+    </ul>
+
+    <h2>4. Lawful basis under POPIA & GDPR</h2>
+    <table class="table table-sm">
+        <thead><tr><th>Activity</th><th>POPIA basis</th><th>GDPR article</th></tr></thead>
+        <tbody>
+            <tr><td>Creating an account</td><td>Contract</td><td>Art. 6(1)(b)</td></tr>
+            <tr><td>Processing payment</td><td>Legal obligation + Contract</td><td>Art. 6(1)(b)(c)</td></tr>
+            <tr><td>Marketing emails (opt-in)</td><td>Consent</td><td>Art. 6(1)(a)</td></tr>
+            <tr><td>Analytics cookies</td><td>Legitimate interest</td><td>Art. 6(1)(f)</td></tr>
+        </tbody>
+    </table>
+
+    <h2>5. Why do we use your data?</h2>
+    <ul>
+        <li>Fulfil orders, deliveries and returns.</li>
+        <li>Process payments and prevent fraud.</li>
+        <li>Send order updates and support messages.</li>
+        <li>Improve products, website performance and customer experience.</li>
+        <li>Comply with tax, accounting and other legal obligations.</li>
+        <li>Send promotional offers (only with your consent, which you may withdraw at any time).</li>
+    </ul>
+
+    <h2>6. Sharing your data</h2>
+    <p>We never sell your data. We only share it with:</p>
+    <ul>
+        <li><strong>Payment processors</strong> (PCI-DSS compliant).</li>
+        <li><strong>Delivery couriers</strong> (to fulfil your order).</li>
+        <li><strong>IT service providers</strong> (hosting, email, analytics).</li>
+        <li><strong>Regulators or law-enforcement</strong> when legally required.</li>
+    </ul>
+
+    <h2>7. Cookies & tracking</h2>
+    <h3>7.1 Essential cookies</h3>
+    <ul>
+        <li>Session ID – keeps you logged in.</li>
+        <li>Anti-forgery token – security.</li>
+    </ul>
+
+    <h3>7.2 Analytics cookies</h3>
+    <ul>
+        <li>Google Analytics 4 – aggregated traffic analysis (IP anonymised).</li>
+        <li>Hotjar – heat-maps (no personal data captured).</li>
+    </ul>
+
+    <h3>7.3 Marketing cookies</h3>
+    <ul>
+        <li>Facebook Pixel – conversion tracking (only if you consent).</li>
+    </ul>
+
+    <p>You can manage cookies via the bottom-left “Cookie Settings” link or your browser settings. Rejecting non-essential cookies will not break core functionality.</p>
+
+    <h2>8. International transfers</h2>
+    <p>We host data in South Africa (Azure SA North).  
+       Some analytics providers (Google, Facebook) may process data in the USA.  
+       We rely on Standard Contractual Clauses (SCCs) and/or your explicit consent for these transfers.</p>
+
+    <h2>9. Data retention</h2>
+    <table class="table table-sm">
+        <thead><tr><th>Category</th><th>Retention period</th><th>Reason</th></tr></thead>
+        <tbody>
+            <tr><td>Order invoices</td><td>5 years</td><td>SARS tax law</td></tr>
+            <tr><td>Account details</td><td>Until account deleted</td><td>Contract</td></tr>
+            <tr><td>Marketing consent</td><td>Until withdrawn + 30 days</td><td>Audit</td></tr>
+            <tr><td>Analytics logs</td><td>26 months</td><td>Google default</td></tr>
+        </tbody>
+    </table>
+
+    <h2>10. Your rights under POPIA & GDPR</h2>
+    <ul>
+        <li><strong>Access</strong> – receive a copy of your personal data.</li>
+        <li><strong>Rectification</strong> – correct inaccurate information.</li>
+        <li><strong>Erasure</strong> – request deletion (subject to legal retention).</li>
+        <li><strong>Restriction</strong> – limit processing in certain circumstances.</li>
+        <li><strong>Objection</strong> – opt out of marketing or profiling.</li>
+        <li><strong>Data portability</strong> – export your data in machine-readable format (GDPR only).</li>
+        <li><strong>Withdraw consent</strong> – at any time, without affecting lawfulness before withdrawal.</li>
+    </ul>
+    <p>Exercise any right by emailing <a href="mailto:privacy@burgerjoint.co.za">privacy@burgerjoint.co.za</a>. We will respond within 21 days (POPIA) or 30 days (GDPR).</p>
+
+    <h2>11. Security measures</h2>
+    <ul>
+        <li>HTTPS/TLS 1.3 encryption in transit.</li>
+        <li>Passwords hashed with BCrypt (work factor 12).</li>
+        <li>PCI-DSS compliant payment gateway (no card data touches our servers).</li>
+        <li>Regular vulnerability scans and security patches.</li>
+        <li>Role-based access control (RBAC) for staff.</li>
+        <li>Encrypted backups stored off-site for 30 days.</li>
+    </ul>
+
+    <h2>12. Children’s privacy</h2>
+    <p>We do not knowingly collect data from anyone under 13 without parental consent. If you become aware that a child has provided us personal data, please contact us and we will delete it.</p>
+
+    <h2>13. Third-party links</h2>
+    <p>Our Site may contain links to external websites. We are not responsible for the privacy practices of those sites and recommend you read their policies.</p>
+
+    <h2>14. Changes to this policy</h2>
+    <p>We may update this policy from time to time. The latest version will always be posted here with a new “Last updated” date. Significant changes will be communicated via email or prominent notice on the Site.</p>
+
+    <h2>15. Contact us</h2>
+    <p>
+        <strong>Data Protection Officer (DPO)</strong><br />
+        BurgerJoint (Pty) Ltd<br />
+        123 Flame-Grill Avenue, Pretoria, 0081<br />
+        Email: <a href="mailto:privacy@burgerjoint.co.za">privacy@burgerjoint.co.za</a><br />
+        Phone: 012 345 6789<br />
+        Registration number: 2025/123456/07
+    </p>
+
+    <h2>16. Lodge a complaint</h2>
+    <p>If you are unhappy with our response, you may lodge a complaint with:</p>
+    <ul>
+        <li><strong>South Africa:</strong> The Information Regulator – <a href="https://inforegulator.org.za" target="_blank">inforegulator.org.za</a></li>
+        <li><strong>EU/UK:</strong> Your local supervisory authority – <a href="https://edpb.europa.eu/about-edpb/board/members_en" target="_blank">edpb.europa.eu</a></li>
+    </ul>
+
+    <div class="mt-5 text-center">
+        <a href="/" class="btn btn-accent">Back to Home</a>
+    </div>
+</div>

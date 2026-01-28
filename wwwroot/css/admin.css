@@ -1,0 +1,5 @@
+body{background:#121212;font-family:'Poppins',sans-serif;}
+.glass-nav{background:rgba(255,255,255,.08);backdrop-filter:blur(12px);}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);}
+.btn-primary{background:#f9a826;border:none;}
+.table-dark{--bs-table-bg:rgba(0,0,0,.2);}

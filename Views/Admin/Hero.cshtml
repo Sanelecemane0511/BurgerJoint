@@ -1,0 +1,29 @@
+@model List<string>
+@{
+    ViewData["Title"] = "Hero Carousel";
+    Layout = "_AdminLayout";
+}
+<h2>Hero Carousel Images</h2>
+<form asp-action="UploadHero" enctype="multipart/form-data" class="mb-4">
+    <div class="input-group">
+        <input type="file" name="file" class="form-control" accept=".jpg,.jpeg,.png,.webp" required />
+        <button class="btn btn-primary">Upload</button>
+    </div>
+</form>
+
+<div class="row g-3">
+    @foreach (var img in Model)
+    {
+        <div class="col-md-3">
+            <div class="card">
+                <img src="~/img/hero/@img" class="card-img-top" />
+                <div class="card-body text-center">
+                    <form asp-action="DeleteHero" method="post">
+                        <input type="hidden" name="fileName" value="@img" />
+                        <button class="btn btn-sm btn-danger">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    }
+</div>

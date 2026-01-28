@@ -1,0 +1,24 @@
+@model BurgerJoint.Models.Order
+@{
+    ViewData["Title"] = "Order Placed";
+}
+<div class="container py-5 text-center">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <i class="bi bi-check-circle text-success fs-1"></i>
+            <h2 class="mt-3">Order Placed!</h2>
+            <p class="lead">
+                @if (Model.DeliveryOption == "Collect")
+                {
+                    <span>Your burgers will be ready for <strong>collection</strong> in ± 15 min.</span>
+                }
+                else
+                {
+                    <span>Your order is on its way and will be <strong>delivered</strong> within 30–45 min.</span>
+                }
+            </p>
+            <p class="mb-0">We’ve emailed the details to <strong>@Model.CustomerEmail</strong></p>
+            <a asp-controller="Burger" asp-action="Index" class="btn btn-primary mt-3">Back to Menu</a>
+        </div>
+    </div>
+</div>

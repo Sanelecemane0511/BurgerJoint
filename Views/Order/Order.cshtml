@@ -1,0 +1,70 @@
+@using System.Text.Json
+@using BurgerJoint.Models
+@model List<OrderItem>
+
+@{
+    ViewData["Title"] = "Your Receipt";
+    Layout = "_Layout";
+    decimal total = Model.Sum(i => (i.UnitPrice * i.Qty) + (i.AddBeer ? 35 : 0));
+}
+
+<div class="container py-5">
+    <h2 class="mb-4">Your Receipt</h2>
+    <div class="card shadow-lg">
+        <div class="card-header bg-primary text-white">
+            <h5 class="mb-0">BurgerJoint – Order #@DateTime.Now.Ticks</h5>
+        </div>
+        <div class="card-body">
+            <table class="table table-borderless mb-0">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th class="text-center">Qty</th>
+                        <th class="text-end">Unit</th>
+                        <th class="text-end">Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.BurgerName @(item.AddBeer ? "+ Beer" : "")</td>
+                            <td class="text-center">@item.Qty</td>
+                            <td class="text-end">@item.UnitPrice.ToString("C")</td>
+                            <td class="text-end">@((item.UnitPrice * item.Qty + (item.AddBeer ? 35 : 0)).ToString("C"))</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr class="table-border-top">
+                        <th colspan="3" class="text-end">TOTAL</th>
+                        <th class="text-end">@total.ToString("C")</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        <div class="card-footer">
+            <form asp-controller="Order" asp-action="Order" method="post" class="row g-3">
+                <input type="hidden" name="itemsJson" value="@JsonSerializer.Serialize(Model)" />
+                <div class="col-md-6">
+                    <label class="form-label">Your Email <span class="text-danger">*</span></label>
+                    <input name="customerEmail" type="email" class="form-control" required placeholder="you@example.com" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">Delivery Option</label>
+                    <select name="deliveryOption" class="form-select" required>
+                        <option value="Collect">Collect (15 min)</option>
+                        <option value="Deliver">Deliver (30–45 min)</option>
+                    </select>
+                </div>
+                <div class="col-12">
+                    <label class="form-label">Delivery Address (only if “Deliver”)</label>
+                    <textarea name="deliveryAddress" class="form-control" rows="2" placeholder="123 Flame St, Pretoria"></textarea>
+                </div>
+                <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-lg" style="background:#ff7f00;color:#000;font-weight:600;">Place Order →</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

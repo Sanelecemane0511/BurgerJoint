@@ -1,0 +1,55 @@
+@model BurgerJoint.Models.Burger
+@{
+    ViewData["Title"] = "Create Burger";
+}
+
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card shadow-lg" style="width:100%; max-width:500px;">
+        <div class="card-header bg-primary text-white text-center">
+            <h4 class="mb-0">🍔 Create Your Burger</h4>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" placeholder="e.g. Truffle Shuffle">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label"></label>
+                    <textarea asp-for="Description" class="form-control" rows="3" placeholder="Short, tasty description..."></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Price" class="form-label"></label>
+                    <input asp-for="Price" class="form-control" placeholder="0.00">
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Ingredients" class="form-label"></label>
+                    <input asp-for="Ingredients" class="form-control" placeholder="Beef, Cheese, Lettuce, Bun">
+                    <span asp-validation-for="Ingredients" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label>Burger Image</label>
+                    <input type="file" name="imageFile" class="form-control" accept=".jpg,.jpeg,.png,.webp">
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-lg btn-success">Save Burger</button>
+                    <a asp-action="Index" class="btn btn-lg btn-secondary">Back to Menu</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

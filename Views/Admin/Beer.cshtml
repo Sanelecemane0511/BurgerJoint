@@ -1,0 +1,15 @@
+@model List<string>
+@{
+    ViewData["Title"] = "Beer List";
+    Layout = "_AdminLayout";
+}
+<h2>Beer on Tap</h2>
+<form asp-action="Beer" method="post">
+    <div id="beerList" class="mb-3">
+        @for (int i = 0; i < Math.Max(Model.Count, 3); i++)
+        {
+            <input name="beers" class="form-control mb-2" value="@(i < Model.Count ? Model[i] : "")" placeholder="e.g. IPA – 6.2 %" />
+        }
+    </div>
+    <button type="submit" class="btn btn-primary">Save List</button>
+</form>

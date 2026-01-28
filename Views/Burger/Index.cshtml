@@ -1,0 +1,133 @@
+@model IEnumerable<BurgerJoint.Models.Burger>
+@{ ViewData["Title"] = "Menu"; }
+
+<!-- ===== WELCOME CAROUSEL ===== -->
+<div id="welcomeCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-inner">
+        @for (int h = 1; h <= 3; h++)
+        {
+            <div class="carousel-item @(h==1?"active":"")">
+                <img src="~/img/hero/hero-@(h).jpg" class="d-block w-100" alt="Hero @h">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 class="display-4 fw-bold text-white">Welcome to BurgerJoint!</h1>
+                    <p class="lead">Family flame-grilled since 1945.</p>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#welcomeCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+<!-- ===== DELIVERY SECTION ===== -->
+<section id="delivery" class="py-5 bg-cream">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="section-title">We Deliver Too!</h2>
+                <p class="lead">Hot burgers at your door in 30 min or less.</p>
+                <h5 class="mt-4">How to order:</h5>
+                <ol class="ps-3">
+                    <li><strong>Click “Add to Cart”</strong> on any burger.</li>
+                    <li><strong>Choose</strong> “Collect” or “Deliver” at checkout.</li>
+                    <li><strong>Pay</strong> safely online (we never store your card).</li>
+                    <li><strong>Track</strong> your order in real-time.</li>
+                </ol>
+                <h5 class="mt-4">Our delivery partners:</h5>
+                <div class="d-flex flex-wrap gap-3 mt-2">
+                    <span class="badge bg-dark fs-6">Mr D</span>
+                    <span class="badge bg-dark fs-6">Uber Eats</span>
+                    <span class="badge bg-dark fs-6">Bolt Food</span>
+                    <span class="badge bg-dark fs-6">OrderIn</span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/img/delivery/delivery-1.jpg" class="img-fluid rounded-3 shadow" alt="Delivery">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== MENU SECTION (12 burgers) ===== -->
+<section id="menu" class="py-5">
+    <div class="container">
+        <h2 class="section-title text-center mb-4">Our Burgers</h2>
+        <div class="row g-4" id="burgerCards">
+            @{ int idx = 0; }
+            @foreach (var b in Model)
+            {
+                string fallback = $"burger-{(idx % 12 + 1)}.jpg";
+                string img = string.IsNullOrEmpty(b.ImageFileName) ? fallback : b.ImageFileName;
+                <div class="col-sm-6 col-lg-3">
+                    <div class="card h-100 shadow-lg burger-card">
+                        <img src="~/img/burgers/@img" class="card-img-top" alt="@b.Name">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-600">@b.Name</h5>
+                            <p class="card-text small flex-grow-1">@b.Description</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="fw-bold text-rust">@b.Price.ToString("C")</span>
+                                <button class="btn btn-sm btn-primary add-to-cart"
+                                        data-id="@b.Id" data-name="@b.Name" data-price="@b.Price">
+                                    Add
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                idx++;
+            }
+        </div>
+
+        <!-- Pager -->
+        @if (ViewBag.Pager != null)
+        {
+            <nav class="mt-4" aria-label="Burger pages">
+                <ul class="pagination justify-content-center">
+                    @for (int p = 1; p <= ViewBag.Pager.TotalPages; p++)
+                    {
+                        <li class="page-item @(p == ViewBag.Pager.CurrentPage ? "active" : "")">
+                            <a class="page-link"
+                               asp-action="Index"
+                               asp-route-search="@ViewBag.Pager.Search"
+                               asp-route-sort="@ViewBag.Pager.Sort"
+                               asp-route-pg="@p">@p</a>
+                        </li>
+                    }
+                </ul>
+            </nav>
+        }
+    </div>
+</section>
+
+<!-- ===== BREW SECTION ===== -->
+<section id="brew" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <h2 class="section-title">Craft Beer on Tap</h2>
+                <p class="lead">Local breweries, rotating taps, cold beer.</p>
+                <div class="row g-2">
+                    @for (int b = 1; b <= 9; b++)
+                    {
+                        <div class="col-6 d-flex align-items-center mb-2">
+                            <img src="~/img/beer/beer-@(b).jpg" width="40" height="40" class="rounded me-2" alt="Beer @b">
+                            <span>Local Brew #@b – 5.2 %</span>
+                        </div>
+                    }
+                </div>
+                <button class="btn btn-accent mt-3">View Full Beer Menu</button>
+            </div>
+            <div class="col-lg-6">
+                <img src="~/img/beer/beer-1.jpg" class="img-fluid rounded-3 shadow" alt="Beer">
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts{
+    <script src="~/js/site.js"></script>
+}
